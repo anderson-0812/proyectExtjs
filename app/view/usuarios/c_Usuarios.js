@@ -88,6 +88,32 @@ Ext.define('MyApp.view.usuarios.c_Usuarios', {
     },
     actualizarUsuario: function () {
         console.log('Actualziar usuario');
+
+        var form = MODULO_USUARIO.down('[name=formUsuarios]');
+
+        var values = form.getValues();
+        var record = form.getRecord();
+        record.set(values);
+
+        console.warn(values);
+        console.warn(record);
+
+        if (form.isValid()) { // make sure the form contains valid data before submitting
+            form.updateRecord(record); // update the record with the form data
+            record.save({ // save the record to the server
+                success: function(user) {
+                    Ext.Msg.alert('Correcto', 'Usuario Actualziado.')
+                },
+                failure: function(user) {
+                    Ext.Msg.alert('Error', 'Fallo de la actualizacion.')
+                }
+            });
+        }
+        // MODULO_USUARIO.down('[name=grid]').getStore().reload();
+
+        // MODULO_USUARIO.down('[name=grid]').getStore().update(record);
+        MODULO_USUARIO.down('[name=grid]').getStore().sync();
+
     },
     formulario: function () {
         Ext.create('Ext.window.Window', {
