@@ -62,7 +62,7 @@ Ext.define('MyApp.view.usuarios.c_Usuarios', {
                         selected.set(values),//selecciona las variables 
                         ventana.close(),//cierre de ventanas
                         MODULO_USUARIO.down('[name=grid]').getStore().sync();
-            }
+                    }
                 },
                 {
                     text: 'Cancelar',
@@ -73,9 +73,16 @@ Ext.define('MyApp.view.usuarios.c_Usuarios', {
         }).show();
         ventana.down('[name=form]').loadRecord(selected);
     },
+    // Extraigo datos de la rila seleccionada y muestro en el formulario
     getUserSelected: function (thiso, selected, eOpts){
         var formUsuarios = MODULO_USUARIO.down('[name=formUsuarios]');
         formUsuarios.loadRecord(selected);
+    },
+    crearUsuario: function (){
+        console.log('Crear usuario');
+    },
+    actualizarUsuario: function () {
+        console.log('Actualziar usuario');
     },
     formulario: function () {
         Ext.create('Ext.window.Window', {

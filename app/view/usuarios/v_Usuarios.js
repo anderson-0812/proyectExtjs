@@ -43,17 +43,7 @@ Ext.define('MyApp.view.usuarios.v_Usuarios', {
                 // anchor: '40% 100%',
                 flex: 1,
                 height: 200,
-                // layout: 'anchor',
-                // store: Ext.create('MyApp.store.usuarios.s_Usuarios'),
-                // tbar: [
-                //     {xtype: 'button', text: 'Ingresar', handler: 'formulario'},
-                //     {xtype: 'button', text: 'recargar', handler: 'recargar'}
-                // ],
-                items:[{
-                    xtype: 'textfield',
-                    name: 'id',
-                    fieldLabel: 'id',
-                },
+                items:[
                 {
                     xtype: 'textfield',
                     name: 'name',
@@ -69,9 +59,20 @@ Ext.define('MyApp.view.usuarios.v_Usuarios', {
                     name: 'phone',
                     fieldLabel: 'Telefono',
                 }],
-                listeners: {
-                    select: 'onSelect'
-                }
+                dockedItems:[{
+                    ui:'footer',
+                    xtype:'toolbar',
+                    dock: 'bottom',
+                    items:[{
+                        text:'Crear',
+                        tbar:'Crear Usuario',
+                        handler: 'crearUsuario'
+                    },{
+                        text:'Actualizar',
+                        toolbar:'Actualizar Usuario',
+                        handler: 'actualizarUsuario'
+                    }]
+                },]
             },
 
         ];
