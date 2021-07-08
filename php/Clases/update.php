@@ -11,8 +11,8 @@ if (!$mysqli = getConectionDb()) {
     $sql_update .= (isset($data->materia)) ? "materia = '$data->materia', " : "";
     $sql_update .= "id_usuario = '1' ";
     $sql_update .= " WHERE id = " . $data->id;
-    
-    
+
+
 
     //echo $sql_update;
     $result = $mysqli->query($sql_update);
@@ -29,6 +29,6 @@ function getConectionDb() {
     @$mysqli = new mysqli($db_host, $db_user, $db_password, $db_name);
     return ($mysqli->connect_errno) ? false : $mysqli;
 }
- 
+
 
 

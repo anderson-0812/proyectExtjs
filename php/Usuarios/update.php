@@ -9,12 +9,12 @@ if (!$mysqli = getConectionDb()) {
   $sql_update = "UPDATE usuario SET ";
     $sql_update .= (isset($data->name)) ? "name = '$data->name', " : "";
     $sql_update .= (isset($data->email)) ? "email = '$data->email', " : "";
-    $sql_update .= (isset($data->phono)) ? "phono = '$data->phono', " : "";
+    $sql_update .= (isset($data->phone)) ? "phone = '$data->phone' " : "";
     $sql_update .= " WHERE id = " . $data->id;
 
 
 
-    //echo $sql_update;
+    // echo $sql_update;
     $result = $mysqli->query($sql_update);
      $mysqli->close();
  }
