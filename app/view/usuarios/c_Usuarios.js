@@ -80,6 +80,11 @@ Ext.define('MyApp.view.usuarios.c_Usuarios', {
     },
     crearUsuario: function (){
         console.log('Crear usuario');
+        var form = MODULO_USUARIO.down('[name=formUsuarios]');
+        var values = form.getValues();
+        console.warn(values),
+        MODULO_USUARIO.down('[name=grid]').getStore().insert(0, values);
+        MODULO_USUARIO.down('[name=grid]').getStore().sync();
     },
     actualizarUsuario: function () {
         console.log('Actualziar usuario');

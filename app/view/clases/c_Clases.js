@@ -80,8 +80,9 @@ Ext.define('MyApp.view.clases.c_Clases', {
 
     },
     formulario: function () {
+
         var ventana2 = Ext.create('Ext.window.Window', {
-            title: 'Hello',
+            title: 'Ingresar Clase',
             height: 200,
             width: 400,
             layout: 'fit',
